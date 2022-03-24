@@ -1,0 +1,28 @@
+{
+  "name": "fullstackopen-phonebookbackend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \\\\\\\"Error: no test specified\\\\\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdaWang33/fullStackOpen-phoneBookBackend.git"
+  },
+  "author": "YW",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdaWang33/fullStackOpen-phoneBookBackend/issues"
+  },
+  "homepage": "https://github.com/AdaWang33/fullStackOpen-phoneBookBackend#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
