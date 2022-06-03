@@ -123,11 +123,8 @@ app.post('/api/persons', (request, response) => {
 })
 
 app.put('/api/persons/:id', (request, response, next) => {
-    Phonenumber.findByIdAndUpdate(request.params.id, {number: request.body.number})
+    Phonenumber.findByIdAndUpdate(request.params.id, {number: request.body.number}, { new: true })
       .then(result => {
-        // Phonenumber.find({}).then(persons => {
-        //     response.json(persons)
-        // })
         response.json(result)
       })
       .catch(error => next(error))
