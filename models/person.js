@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 
+// eslint-disable-next-line no-undef
 const url = process.env.MONGODB_URI
 
 console.log('connecting to', url)
 
 mongoose.connect(url)
-  .then(result => {
+  .then(() => {
     console.log('connected to MongoDB')
   })
   .catch((error) => {
@@ -13,15 +14,21 @@ mongoose.connect(url)
   })
 
 const phonebookSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        minLength: 5,
-        required: true
+  name: {
+    type: String,
+    minLength: 5,
+    required: true
+  },
+  number: {
+    type: String,
+    validate: {
+      validator: function(v) {
+        return /^[0-9]\d{2,3}-^[0-9]\d/.test(v)
+      },
+      message: props => `${props.value} is not a valid phone number!`
     },
-    number: { 
-        type: String,
-        required: true
-    }
+    required: true
+  }
 })
 
 phonebookSchema.set('toJSON', {
